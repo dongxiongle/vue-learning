@@ -6,6 +6,7 @@ export type Key = string | number;
 export interface VNodeData {
   props?: Props;
   attrs?: Attrs;
+  class?: Classes;
 }
 
 export interface VNode {
