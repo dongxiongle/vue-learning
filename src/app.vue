@@ -1,5 +1,7 @@
 <template>
-  <div>app1</div>
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 <script lang="ts">
 import { Vue } from 'vue-property-decorator';
