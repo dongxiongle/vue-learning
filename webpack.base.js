@@ -14,10 +14,13 @@ module.exports = {
     publicPath: './',
     filename: 'assets/[name].[hash:8].js'
   },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader',

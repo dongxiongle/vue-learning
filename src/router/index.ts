@@ -1,18 +1,18 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Main from '../views/main.vue';
+import Layout from '../layout/index.vue';
 import CommonRouterView from '../components/commonRouterView/index.ts';
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
+export const routes: Array<RouteConfig> = [
   {
-    path: '/b',
+    path: '/',
     name: 'home',
     meta: {
       title: '起步'
     },
-    component: Main
+    component: Layout
   },
   {
     path: '/reactive',
@@ -20,7 +20,7 @@ const routes: Array<RouteConfig> = [
     meta: {
       title: '变化侦测'
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'object',
