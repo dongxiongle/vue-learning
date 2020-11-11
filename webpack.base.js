@@ -32,6 +32,16 @@ module.exports = {
         use: {
           loader: 'vue-loader'
         }
+      },
+      {
+        test: /\.(le|c)ss$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
+      },
+      {
+        test: /\.(jpg|png|woff|eot|ttf|svg|gif)$/,
+        use: [{
+          loader: 'file-loader'
+        }]
       }
     ]
   },

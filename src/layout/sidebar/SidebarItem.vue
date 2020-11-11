@@ -7,10 +7,10 @@
         </el-menu-item>
       </app-link>
     </template>
-    <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
+    <el-submenu v-else :index="resolvePath(item.path)">
       <span slot="title">{{item.meta.title}}</span>
       <template v-for="child in item.children">
-        <template v-if="!child.hidden">
+        <template v-if="!child.meta.hidden">
           <sidebar-item
             v-if="child.children && child.children.length > 0"
             :item="child"
