@@ -1,3 +1,3 @@
 <template>
-  <div>侦测</div>
+  <div>object</div>
 </template>

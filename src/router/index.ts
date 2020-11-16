@@ -28,28 +28,12 @@ export const routes: Array<RouteConfig> = [
         meta: {
           title: 'Object的变化侦测'
         },
-        component: CommonRouterView,
-        children: [
-          {
-            path: 'oCollect',
-            name: 'oCollect',
-            meta: { title: '依赖收集' },
-            component: () => import('../views/reactive/object/collect.vue')
-          }
-        ]
+        component: () => import('../views/reactive/object.vue')
       },
       {
         path: 'array',
         meta: { title: 'Array的变化侦测' },
-        component: CommonRouterView,
-        children: [
-          {
-            path: 'aWatch',
-            name: 'aWatch',
-            meta: { title: '数组侦测' },
-            component: () => import('../views/reactive/array/watch.vue')
-          }
-        ]
+        component: () => import('../views/reactive/array.vue')
       }
     ]
   }

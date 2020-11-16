@@ -27,3 +27,16 @@ export default class Sidebar extends Vue {
   }
 }
 </script>
+<style lang="less">
+.el-menu {
+  min-height: 100vh;
+  .el-menu-item, .el-submenu__title {
+    line-height: 46px;
+    height: 46px;
+  }
+}
+.el-menu .el-submenu .el-menu-item {
+  height: 40px;
+  line-height: 40px;
+}
+</style>

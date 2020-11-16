@@ -1,13 +1,13 @@
 <template>
-  <transition>
-    <router-view :key="key" />
-  </transition>
+  <!-- <transition> -->
+  <router-view :key="key" />
+  <!-- </transition> -->
 </template>
 <script lang="ts">
-import {Vue, Component} from 'vue-property-decorator';
+import { Vue, Component } from "vue-property-decorator";
 
 @Component({
-  name: 'AppMain'
+  name: "AppMain",
 })
 export default class AppMain extends Vue {
   get key() {
