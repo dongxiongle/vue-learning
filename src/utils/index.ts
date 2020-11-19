@@ -1,3 +1,3 @@
-export const isExternal = (path: string) => {
-  return /^(https?:|mailto:|tel:)/.test(path);
-};
+export * from './env';
+export * from './lang';
+

@@ -10,8 +10,9 @@ export default class ObjectDefine extends Vue {
   mounted() {
     let car = new Observer({
       'price': 3000,
-      brand: 'b'
+      'brand': 'b'
     });
+    car.value.brand = 'c';
   }
 }
 </script>
