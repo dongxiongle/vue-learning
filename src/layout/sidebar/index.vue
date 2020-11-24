@@ -1,6 +1,6 @@
 <template>
   <div style="width: 256px">
-    <el-menu mode="vertical">
+    <el-menu mode="vertical" style="min-height:100vh;">
       <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"/>
     </el-menu>
   </div>
@@ -29,7 +29,7 @@ export default class Sidebar extends Vue {
 </script>
 <style lang="less">
 .el-menu {
-  min-height: 100vh;
+  // min-height: 100vh;
   .el-menu-item, .el-submenu__title {
     line-height: 46px;
     height: 46px;

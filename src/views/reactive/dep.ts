@@ -18,9 +18,9 @@ export default class Dep {
     remove(this.subs, sub);
   }
   depend() {
-    if(Dep.target) {
-      this.addSub(Dep.target);
-    }
+    // if(Dep.target) {
+    //   this.addSub(Dep.target);
+    // }
   }
   notify() {
     const subs = this.subs.slice();
@@ -30,14 +30,14 @@ export default class Dep {
   }
 }
 
-Dep.target = null;
+// Dep.target = null;
 const targetStack: Array<any> = [];
 export function pushTarget(target?: Watcher) {
   targetStack.push(target);
-  Dep.target = target;
+  // Dep.target = target;
 }
 
 export function popTarget() {
   targetStack.pop();
-  Dep.target = targetStack[targetStack.length - 1];
+  // Dep.target = targetStack[targetStack.length - 1];
 }

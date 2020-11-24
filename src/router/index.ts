@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Layout from '../layout/index.vue';
-import CommonRouterView from '../components/commonRouterView/index.ts';
 
 Vue.use(VueRouter)
 
@@ -34,6 +33,22 @@ export const routes: Array<RouteConfig> = [
         path: 'array',
         meta: { title: 'Array的变化侦测' },
         component: () => import('../views/reactive/array.vue')
+      }
+    ]
+  },
+  {
+    path: '/algorithm',
+    name: 'algorithm',
+    meta: {
+      title: '算法初解'
+    },
+    component: Layout,
+    children: [
+      {
+        path: 'queue',
+        name: 'queue',
+        meta: { title: '队列' },
+        component: () => import('../views/algorithm/queue.vue')
       }
     ]
   }
