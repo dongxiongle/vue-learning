@@ -1,9 +1,7 @@
 <template>
-  <div style="width: 256px">
-    <el-menu mode="vertical" style="min-height:100vh;">
-      <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"/>
-    </el-menu>
-  </div>
+  <el-menu mode="vertical" style="height:100vh;overflow-y: auto;">
+    <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"/>
+  </el-menu>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';

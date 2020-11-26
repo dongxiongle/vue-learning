@@ -6,6 +6,7 @@ import App from './app.vue';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import './less/reset.less';
+import './less/layout.less'
 
 Vue.use(Element);
 

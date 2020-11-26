@@ -51,6 +51,20 @@ export const routes: Array<RouteConfig> = [
         component: () => import('../views/algorithm/queue.vue')
       }
     ]
+  },
+  {
+    path: '/ecma',
+    name: 'ecma',
+    meta: { title: 'ECMA' },
+    component: Layout,
+    children: [
+      {
+        path: 'proxyAndReflect',
+        name: 'proxyAndReflect',
+        meta: { title: 'Proxy And Reflect' },
+        component: () => import('../views/ecma/proxyAndReflect.vue')
+      }
+    ]
   }
 ]
 

@@ -1,5 +1,4 @@
 <template>
-  <div>
     <el-container>
       <el-aside>
         <sidebar />
@@ -10,8 +9,6 @@
         </el-main>
       </el-container>
     </el-container>
-
-  </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
