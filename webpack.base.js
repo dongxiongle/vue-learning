@@ -5,6 +5,9 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 
 module.exports = {
+  resolveLoader: {
+    modules: ['node_modules', './loaders']
+  },
   mode: 'production',
   entry: {
     index: './src/app.ts'
