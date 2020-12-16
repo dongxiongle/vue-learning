@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Layout from '../layout/index.vue';
+import Main from '../views/main.vue';
 
 Vue.use(VueRouter)
 
@@ -11,7 +12,7 @@ export const routes: Array<RouteConfig> = [
     meta: {
       title: '起步'
     },
-    component: Layout
+    component: Main
   },
   {
     path: '/reactive',
@@ -49,6 +50,12 @@ export const routes: Array<RouteConfig> = [
         name: 'queue',
         meta: { title: '队列' },
         component: () => import('../views/algorithm/queue.vue')
+      },
+      {
+        path: 'linkLIst',
+        name: 'linkLIst',
+        meta: { title: '链表' },
+        component: () => import('../views/algorithm/linkLIst.vue')
       }
     ]
   },
@@ -69,8 +76,13 @@ export const routes: Array<RouteConfig> = [
 ]
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  // console.log(to);
+  next();
 });
 
 export default router;

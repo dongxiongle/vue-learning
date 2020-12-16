@@ -10,11 +10,12 @@ const anchor = require('markdown-it-anchor');
 const toc = require('markdown-it-table-of-contents');
 
 const containers = require('./containers');
-const { Model } = require('vue-property-decorator');
 
 const md = require('markdown-it')({
   html: true,
   highlight: function (str, lang) {
+    console.log('-------------------------------------');
+    console.log(lang);
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre><code>${hljs.highlight(lang, str, true).value}</code></pre>`
@@ -42,9 +43,9 @@ module.exports = function(source) {
   const key = hash(file + source);
   const cashed = cache.get(key);
 
-  if (cached && (isProd || /\?vue/.test(this.resourceQuery))) {
-    return cashed;
-  }
+  // if (cached && (isProd || /\?vue/.test(this.resourceQuery))) {
+  //   return cashed;
+  // }
   const html = md.render(source);
   const res = (`
   <template>

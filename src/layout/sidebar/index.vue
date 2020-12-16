@@ -1,6 +1,6 @@
 <template>
   <el-menu mode="vertical" style="height:100vh;overflow-y: auto;">
-    <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"/>
+    <sidebar-item :item="routes" :base-path="routes.path"/>
   </el-menu>
 </template>
 <script lang="ts">
@@ -17,7 +17,9 @@ import { routes } from '../../router/index';
 export default class Sidebar extends Vue {
   openKeys: Array<string> = ['/'];
   get routes() {
-    return routes;
+    const { path } = this.$route;
+    const route = routes.find(item => item.path !== '/' && path.indexOf(item.path) > -1);
+    return route;
   }
 
   private onOpenChange(openKeys: Array<string>) {

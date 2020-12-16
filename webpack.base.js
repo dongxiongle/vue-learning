@@ -6,7 +6,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   resolveLoader: {
-    modules: ['node_modules', './loaders']
+    modules: ['node_modules', './loaders/']
   },
   mode: 'production',
   entry: {
@@ -35,6 +35,12 @@ module.exports = {
         use: {
           loader: 'vue-loader'
         }
+      },
+      {
+        test: /\.md$/,
+        use: ['vue-loader', {
+          loader: resolve(__dirname, './loaders/mdLoader')
+        }]
       },
       {
         test: /\.(le|c)ss$/,

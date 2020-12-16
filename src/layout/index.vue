@@ -21,7 +21,5 @@ import AppMain from './AppMain.vue';
     AppMain
   }
 })
-export default class Layout extends Vue {
-
-}
+export default class Layout extends Vue {}
 </script>
