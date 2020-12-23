@@ -1,4 +1,4 @@
-## 链表
+# 链表
 
 ```javascript
 const a = 1;

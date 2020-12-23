@@ -14,7 +14,7 @@ module.exports = {
   },
   output: {
     path: resolve(__dirname, 'dist'),
-    publicPath: './',
+    publicPath: '/',
     filename: 'assets/[name].[hash:8].js'
   },
   resolve: {
