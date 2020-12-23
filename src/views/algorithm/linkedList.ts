@@ -30,7 +30,29 @@ class LinkedList {
   }
   // 插入元素
   insert(position: number, element: Item['element']) {}
-  removeAt(position: number) {}
+  removeAt(position: number) {
+    // 越界检测
+    if (position < 0 || position >= this.length) {
+      return Error('越界了');
+    }
+    if (this.length === 0) {
+      return null;
+    }
+    let current = this.head as Item;
+    let previous: Item = current;
+    let index = 0;
+    if (position === 0) {
+      this.head = current.next;
+    } else {
+      while(index++ < position) {
+        previous = current;
+        current = current.next as Item;
+      }
+      previous.next = current.next;
+    }
+    this.length--;
+    return current.element;
+  }
   remove(element: Item['element']) {}
   indexOf(element: Item['element']) {}
   isEmpty() {}
