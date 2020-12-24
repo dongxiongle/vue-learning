@@ -14,14 +14,12 @@ const containers = require('./containers');
 const md = require('markdown-it')({
   html: true,
   highlight: function (str, lang) {
-    console.log('-------------------------------------');
-    console.log(lang);
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return `<pre><code>${hljs.highlight(lang, str, true).value}</code></pre>`
+        return `<div class="codeWrap"><pre><code>${hljs.highlight(lang, str, true).value}</code></pre></div>`
       } catch (_) {}
     }
-    return `<pre v-pre><code>${md.utils.escapeHtml(str)}</code></pre>`
+    return `<div class="codeWrap"<pre v-pre><code>${md.utils.escapeHtml(str)}</code></pre></div>`
   }
 })
 .use(emoji)
@@ -49,7 +47,7 @@ module.exports = function(source) {
   const html = md.render(source);
   const res = (`
   <template>
-  <div>${html}</div>
+  <div class="mdWrap">${html}</div>
   </template>
   `);
   cache.set(key, res);
