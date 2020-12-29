@@ -14,12 +14,18 @@ const containers = require('./containers');
 const md = require('markdown-it')({
   html: true,
   highlight: function (str, lang) {
+    const list = str.split('\n');
+    let code = `<span aria-hidden="true" class="codeRow">`;
+    list.forEach(item => {
+      code += '<span></span>';
+    });
+    code += '</span>';
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return `<div class="codeWrap"><pre><code>${hljs.highlight(lang, str, true).value}</code></pre></div>`
+        return `<div class="codeWrap"><pre><code>${hljs.highlight(lang, str + code, true).value}</code></pre></div>`
       } catch (_) {}
     }
-    return `<div class="codeWrap"<pre v-pre><code>${md.utils.escapeHtml(str)}</code></pre></div>`
+    return `<div class="codeWrap"<pre v-pre><code>${md.utils.escapeHtml(str + code)}</code></pre></div>`
   }
 })
 .use(emoji)

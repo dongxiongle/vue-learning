@@ -26,3 +26,27 @@
     font-size: 14px;
   }
 }
+.codeRow {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3.8em;
+  letter-spacing: -1px;
+  border-right: 1px solid #999;
+  user-select: none;
+  counter-reset: linenumber;
+  span {
+    pointer-events: none;
+    display: block;
+    counter-increment: linenumber;
+    &::before {
+      content: counter(linenumber);
+      color: #999;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+  }
+}
