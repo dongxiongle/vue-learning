@@ -22,10 +22,10 @@ const md = require('markdown-it')({
     code += '</span>';
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return `<div class="codeWrap"><pre><code>${hljs.highlight(lang, str + code, true).value}</code></pre></div>`
+        return `<div class="codeWrap"><pre><code>${hljs.highlight(lang, str, true).value}</code></pre>${code}</div>`
       } catch (_) {}
     }
-    return `<div class="codeWrap"<pre v-pre><code>${md.utils.escapeHtml(str + code)}</code></pre></div>`
+    return `<div class="codeWrap"<pre v-pre><code>${md.utils.escapeHtml(str)}</code></pre>${code}</div>`
   }
 })
 .use(emoji)
