@@ -69,6 +69,7 @@ function coinChange(coins, n) {
       if (subProblem == -1) {
         continue;
       }
+      // 想取dp(n)的最小值(coins[i] + (n-coins[i]) == n)，可以取dp(n - coins[i])的最小值 + 1
       res = Math.min(res, 1 + subProblem);
     }
     if (res !== Infinity) {
@@ -77,5 +78,37 @@ function coinChange(coins, n) {
     return res !== Infinity ? res : -1;
   }
   return dp(n);
+}
+```
+
+### 排队取最小移动次数
+> 给定一数组，获取排序后的最小移动次数
+> 输入 [1,1,4,2,1,3] 获取排序后的最小移动次数
+1. 暴力排序
+```javascript
+function heightChecker(heights) {
+  let n = 0;
+  if (heights.length <= 0) {
+    return -1;
+  }
+  if (heights.length === 1) {
+    return 0;
+  }
+  const list = Array.from(heights);
+  for (let i = 0; i < list.length; i++) {
+    for (let j = i + 1; j < list.length; j++) {
+      if (list[j] < list[i]) {
+        list[i] = list[i] + list[j];
+        list[j] = list[i] - list[j];
+        list[i] = list[i] - list[j];
+      }
+    }
+  }
+  for (let k = 0; k < list.length; k++) {
+    if (heights[k] !== list[k]) {
+      n++;
+    }
+  }
+  return n;
 }
 ```
