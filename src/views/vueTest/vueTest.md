@@ -83,3 +83,15 @@ setupFiles: [
   "<rootDir>/__test__/unit/register-context.js"
 ]
 ```
+
+### TypeError: document.createRange is not a function
+```javascript
+document.createRange = () => ({
+  setStart: () => {},
+  setEnd: () => {},
+  commonAncestorContainer: {
+    nodeName: 'BODY',
+    ownerDocument: document
+  }
+});
+```
